@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    color-scheme: light dark;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  body { margin: 0; font: 14px system-ui, -apple-system, sans-serif; background: #FAFAF8; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>REALM Conformity Walkthrough</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+  :root {
+    --paper: #F3F7F8; --card: #FFFFFF; --ink: #101A20; --body-ink: #223138;
+    --muted: #5B6B75; --faint: #879AA3; --line: #DBE4E8; --rule: #C6D3D9;
+    --accent: #0C6B70; --accent-ink: #075257; --accent-wash: #E4F0F0;
+    --caution: #8A5300; --caution-wash: #F8EEDE;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0C1417; --card: #16232A; --ink: #EAF1F3; --body-ink: #C8D6DB;
+      --muted: #94A7AF; --faint: #70848D; --line: #213138; --rule: #2C4049;
+      --accent: #5CBABE; --accent-ink: #92D6D9; --accent-wash: #102A2C;
+      --caution: #DCAC64; --caution-wash: #241D11;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0C1417; --card: #16232A; --ink: #EAF1F3; --body-ink: #C8D6DB;
+    --muted: #94A7AF; --faint: #70848D; --line: #213138; --rule: #2C4049;
+    --accent: #5CBABE; --accent-ink: #92D6D9; --accent-wash: #102A2C;
+    --caution: #DCAC64; --caution-wash: #241D11;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper); color: var(--body-ink); font-family: var(--sans);
+    font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding-inline: 22px; padding-block: 0 70px; }
+  header { padding-block: 56px 30px; }
+  .kicker {
+    font: 500 11px/1 var(--sans); letter-spacing: .13em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 15px;
+  }
+  h1 {
+    font-family: var(--serif); font-weight: 600; font-size: clamp(32px, 5.6vw, 48px);
+    line-height: 1.07; letter-spacing: -.024em; color: var(--ink); margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  .lede {
+    font-size: 18.5px; line-height: 1.55; color: var(--muted); margin: 0; max-width: 62ch;
+  }
+  .lede strong { color: var(--ink); font-weight: 500; }
+  .byline {
+    font: 400 12.5px/1.5 var(--mono); color: var(--faint); margin-top: 22px;
+    padding-top: 16px; border-top: 1px solid var(--line);
+    display: flex; gap: 6px 22px; flex-wrap: wrap;
+  }
+
+  .ways { display: grid; gap: 14px; margin-block: 34px 8px; }
+  a.way {
+    display: grid; grid-template-columns: 1fr auto; gap: 8px 18px; align-items: center;
+    background: var(--card); border: 1px solid var(--line); border-radius: 11px;
+    padding: 20px 22px; text-decoration: none; color: inherit;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  a.way:hover { border-color: var(--accent); transform: translateY(-1px); }
+  a.way:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  a.way h2 {
+    font-family: var(--serif); font-weight: 600; font-size: 21px; letter-spacing: -.015em;
+    color: var(--ink); margin: 0 0 5px;
+  }
+  a.way p { margin: 0; font-size: 14.5px; color: var(--muted); max-width: 58ch; }
+  a.way .tag {
+    font: 500 11px/1 var(--mono); letter-spacing: .04em; color: var(--accent-ink);
+    background: var(--accent-wash); border-radius: 5px; padding: 7px 9px; white-space: nowrap;
+  }
+  a.way .go { font: 400 20px/1 var(--sans); color: var(--accent); }
+
+  h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 19px; letter-spacing: -.01em;
+    color: var(--ink); margin: 38px 0 10px; padding-bottom: 7px;
+    border-bottom: 1px solid var(--line);
+  }
+  p.body { max-width: 66ch; margin: 0 0 1em; }
+  .facts { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin: 18px 0; }
+  .facts > div {
+    display: grid; grid-template-columns: 112px 1fr; gap: 16px; align-items: baseline;
+    padding: 12px 15px; border-bottom: 1px solid var(--line);
+  }
+  .facts > div:last-child { border-bottom: 0; }
+  .facts > div:nth-child(odd) { background: var(--card); }
+  .facts dt {
+    font: 500 10.5px/1.6 var(--sans); letter-spacing: .1em; text-transform: uppercase;
+  }
+  .facts .real dt { color: var(--accent); }
+  .facts .syn dt { color: var(--caution); }
+  .facts .no dt { color: var(--muted); }
+  .facts dd { margin: 0; font-size: 14.5px; }
+  @media (max-width: 560px) {
+    .facts > div { grid-template-columns: 1fr; gap: 4px; }
+    a.way { grid-template-columns: 1fr; }
+  }
+  footer {
+    margin-top: 38px; padding-top: 16px; border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--faint);
+  }
+  code {
+    font-family: var(--mono); font-size: .88em; background: var(--card);
+    border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; color: var(--ink);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="kicker">For notified bodies</p>
+    <h1>Reading a REALM dossier</h1>
+    <p class="lede">Conformity assessment of medical AI is normally performed on documentation
+      supplied by the manufacturer. This is the same assessment performed differently:
+      <strong>every figure in the dossier is computed by the assessor's own infrastructure, on
+      patient data that never leaves the hospital.</strong></p>
+    <p class="byline">
+      <span>Device: AKI-Onset (ICU, 24h index) v0.1.0</span>
+      <span>Node: REALM-OS 0.1.62</span>
+      <span>Lens: Notified Body</span>
+    </p>
+  </header>
+
+  <div class="ways">
+    <a class="way" href="video.html">
+      <div>
+        <h2>Watch the recording</h2>
+        <p>The whole walkthrough, narrated, with the screen zooming to each figure as it is
+          named. Nothing to drive.</p>
+      </div>
+      <span class="tag">9:06 video</span>
+    </a>
+
+    <a class="way" href="player.html">
+      <div>
+        <h2>Step through it yourself</h2>
+        <p>One screen, 25 steps. Auto-advance, or stop at each paragraph and take questions.
+          Keyboard driven, fullscreen capable.</p>
+      </div>
+      <span class="tag">interactive</span>
+    </a>
+
+    <a class="way" href="playbook.html">
+      <div>
+        <h2>Read the playbook</h2>
+        <p>Seven chapters with the captures, the narration as a script, and the observations an
+          assessor should take from each screen.</p>
+      </div>
+      <span class="tag">document</span>
+    </a>
+  </div>
+
+  <h3>The four questions it answers</h3>
+  <p class="body">Is this the device that was submitted? Could this evidence answer the
+    question? Do the declared claims hold? And will degradation in service be detected? REALM
+    has a screen for each, and the walkthrough covers them in that order, ending on the record
+    of the decision itself.</p>
+
+  <h3>What is real and what is not</h3>
+  <p class="body">Stated up front rather than in the questions afterwards, because an assessor
+    who finds an undisclosed synthetic dataset partway through will discount everything already
+    shown.</p>
+  <div class="facts">
+    <div class="real">
+      <dt>Real</dt>
+      <dd>The model: a trained artefact, containerised, signed and certified by the node's own
+        factory.</dd>
+    </div>
+    <div class="real">
+      <dt>Real</dt>
+      <dd>The pre-market cohort: 16,829 patients converted from MIMIC-IV into OMOP on the node.</dd>
+    </div>
+    <div class="real">
+      <dt>Real</dt>
+      <dd>Every metric, confidence interval, subgroup result, conformance check and claim
+        verdict, produced by the code that runs a live evaluation.</dd>
+    </div>
+    <div class="syn">
+      <dt>Synthetic</dt>
+      <dd>The post-market surveillance dataset, 6,000 dated records. The drift arithmetic is
+        real; the twelve months it runs over are manufactured.</dd>
+    </div>
+    <div class="syn">
+      <dt>Synthetic</dt>
+      <dd>The narration voice, from a neural text-to-speech model run locally. The script is
+        written to be read by a person.</dd>
+    </div>
+    <div class="no">
+      <dt>Not claimed</dt>
+      <dd>REALM is not a designated body and does not issue certificates. It produces evidence
+        for an assessment that a notified body signs.</dd>
+    </div>
+  </div>
+
+  <footer>
+    All three views are generated from a single script,
+    <code>docs/demo/narration.md</code>. Screens are unretouched captures from a running node;
+    crops are tight to the panel under discussion.
+  </footer>
+</div>
+</body>
+</html>
