@@ -25,6 +25,11 @@ bringing a device onto a node (packaging, testing, signing, importing, certifyin
 evaluating it on a held-out test set. Screens are unretouched captures from a running
 REALM-OS node; terminal steps are a real session against the published model image.
 
+A third walkthrough follows a second device, a COPD severity classifier, through every stage
+in ten minutes, from training to regulator surveillance, as a recording and as an interactive
+player. Its training data is a public teaching dataset of 101 patients and its post-market
+data is synthetic; both are stated in the walkthrough.
+
 The model and every computed figure are real. The pre-market cohort is real clinical data and
 is the manufacturer's own 30% hold-out, so evaluating on it reproduces the declared
 performance under the node's control; it is not external validation. The post-market

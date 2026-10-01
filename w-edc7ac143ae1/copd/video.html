@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+  :root {
+    color-scheme: light dark;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  body { margin: 0; font: 14px system-ui, -apple-system, sans-serif; background: #FAFAF8; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+<title>COPD Walkthrough Recording</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+  :root {
+    --paper: #F3F7F8; --card: #FFFFFF; --ink: #101A20; --body-ink: #223138;
+    --muted: #5B6B75; --faint: #879AA3; --line: #DBE4E8;
+    --accent: #0C6B70; --accent-ink: #075257; --accent-wash: #E4F0F0;
+    --caution: #8A5300; --caution-wash: #F8EEDE;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0C1417; --card: #16232A; --ink: #EAF1F3; --body-ink: #C8D6DB;
+      --muted: #94A7AF; --faint: #70848D; --line: #213138;
+      --accent: #5CBABE; --accent-ink: #92D6D9; --accent-wash: #102A2C;
+      --caution: #DCAC64; --caution-wash: #241D11;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0C1417; --card: #16232A; --ink: #EAF1F3; --body-ink: #C8D6DB;
+    --muted: #94A7AF; --faint: #70848D; --line: #213138;
+    --accent: #5CBABE; --accent-ink: #92D6D9; --accent-wash: #102A2C;
+    --caution: #DCAC64; --caution-wash: #241D11;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper); color: var(--body-ink); font-family: var(--sans);
+    font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding-inline: 22px; padding-block: 0 64px; }
+  header { padding-block: 40px 22px; }
+  .kicker {
+    font: 500 11px/1 var(--sans); letter-spacing: .13em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 13px;
+  }
+  h1 {
+    font-family: var(--serif); font-weight: 600; font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.1; letter-spacing: -.022em; color: var(--ink); margin: 0 0 14px;
+    text-wrap: balance;
+  }
+  .lede { color: var(--muted); margin: 0; max-width: 64ch; }
+  video {
+    display: block; width: 100%; height: auto; border-radius: 10px;
+    border: 1px solid var(--line); background: #0A1114; margin-block: 8px 10px;
+    box-shadow: 0 1px 2px rgba(16,26,32,.06), 0 16px 36px -22px rgba(16,26,32,.4);
+  }
+  .meta {
+    font: 400 12.5px/1.5 var(--mono); color: var(--faint);
+    display: flex; gap: 6px 20px; flex-wrap: wrap; margin-bottom: 34px;
+  }
+  h2 {
+    font-family: var(--serif); font-weight: 600; font-size: 19px; letter-spacing: -.01em;
+    color: var(--ink); margin: 30px 0 10px; padding-bottom: 7px;
+    border-bottom: 1px solid var(--line);
+  }
+  p { margin: 0 0 1em; max-width: 68ch; }
+  dl.chapters {
+    border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin: 0 0 8px;
+  }
+  dl.chapters > div {
+    display: grid; grid-template-columns: 66px 1fr; gap: 16px; align-items: baseline;
+    padding: 11px 15px; border-bottom: 1px solid var(--line);
+  }
+  dl.chapters > div:last-child { border-bottom: 0; }
+  dl.chapters > div:nth-child(odd) { background: var(--card); }
+  dl.chapters dt {
+    font: 400 12.5px/1.5 var(--mono); font-variant-numeric: tabular-nums; color: var(--accent);
+  }
+  dl.chapters dd { margin: 0; font-size: 14.5px; }
+  dl.chapters dd span { color: var(--muted); }
+  .note {
+    background: var(--caution-wash); border-radius: 9px; padding: 16px 18px; font-size: 14px;
+    margin-block: 14px 0;
+  }
+  .note b { color: var(--ink); font-weight: 500; }
+  footer {
+    margin-top: 34px; padding-top: 16px; border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--faint);
+  }
+  code {
+    font-family: var(--mono); font-size: .88em; background: var(--card);
+    border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; color: var(--ink);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="kicker">Recorded playthrough</p>
+    <h1>COPD severity prediction, end to end</h1>
+    <p class="lede">One device through a REALM node: the model, training and onboarding,
+      the datasets, evaluation over the intended population, performance, subgroups and
+      explanation, the ledger, validation by the notified body, and post-market surveillance
+      by the regulator. Ten minutes, narrated, with the screen zooming to each figure
+      as it is named.</p>
+  </header>
+
+  <video controls preload="metadata" poster="" playsinline>
+    <source src="walkthrough.mp4" type="video/mp4">
+    Your browser cannot play this video.
+  </video>
+  <p class="meta">
+    <span>10:13</span><span>1280 x 720</span><span>H.264 + AAC</span><span>15 MB</span>
+  </p>
+
+  <h2>What it covers</h2>
+  <dl class="chapters">
+    <div><dt>0:01</dt><dd>Opening <span>the device, the data, and what is synthetic</span></dd></div>
+    <div><dt>0:38</dt><dd>Part one: The device and what it claims <span>intended use, inputs and the predicted outcome</span></dd></div>
+    <div><dt>1:28</dt><dd>Part two: Training the model <span>training, packaging, running offline, certification</span></dd></div>
+    <div><dt>3:20</dt><dd>Part three: The test set, as OMOP <span>the test set as OMOP, provenance, fitness</span></dd></div>
+    <div><dt>4:31</dt><dd>Part four: Evaluating over the intended population <span>labelled outcome over the intended population</span></dd></div>
+    <div><dt>5:24</dt><dd>Part five: Performance <span>intervals, subgroups, feature importance, the label</span></dd></div>
+    <div><dt>7:07</dt><dd>Part six: The record on the ledger <span>the lifecycle on the ledger</span></dd></div>
+    <div><dt>7:33</dt><dd>Part seven: Validation by the notified body <span>the review queue and the assessor&#x27;s judgement</span></dd></div>
+    <div><dt>8:17</dt><dd>Part eight: Post-market oversight <span>oversight, the drift series, subgroup and claim failures</span></dd></div>
+    <div><dt>9:42</dt><dd>Closing <span>real, synthetic, and not claimed</span></dd></div>
+  </dl>
+
+  <h2>How it was made</h2>
+  <p>Studio screens are unretouched captures from a running REALM-OS node, read as the
+    notified body and the regulator; nothing was submitted. Terminal screens are real runs:
+    the manufacturer's training script, the label check, the OMOP conversion, and the
+    published model image served with networking disabled. Every output line shown is what
+    the command printed.</p>
+  <p>Synchronisation is exact rather than estimated. The narration is assembled sentence by
+    sentence, so every sentence boundary is a known audio offset, and those offsets drive the
+    captions and the zooms.</p>
+
+  <div class="note">
+    <p><b>Three disclosures, all also stated in the recording.</b> The training data is a
+      public teaching dataset of 101 patients whose clinical source is not documented, so this
+      is a demonstration of the process, not evidence about COPD. The post-market cohorts and
+      the twelve-month drift series in part eight are synthetic. And the voice is machine
+      synthesised, by a neural text-to-speech model run locally.</p>
+  </div>
+
+  <footer>
+    Generated from <code>docs/demo/copd-walkthrough.md</code>. Editing that file and
+    rebuilding regenerates this recording and the interactive player together.
+  </footer>
+</div>
+</body>
+</html>
