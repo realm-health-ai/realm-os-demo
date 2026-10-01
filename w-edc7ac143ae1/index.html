@@ -125,19 +125,19 @@
 <body>
 <div class="wrap">
   <header>
-    <p class="kicker">For notified bodies</p>
-    <h1>Reading a REALM dossier</h1>
+    <p class="kicker">For notified bodies and manufacturers</p>
+    <h1>One device, both sides of the assessment</h1>
     <p class="lede">Conformity assessment of medical AI is normally performed on documentation
       supplied by the manufacturer. This is the same assessment performed differently:
-      <strong>every figure in the dossier is computed by the assessor's own infrastructure, on
-      patient data that never leaves the hospital.</strong></p>
+      <strong>every figure in the dossier is computed by the node itself, on patient data that
+      never leaves the hospital, rather than reported by the manufacturer.</strong></p>
     <p class="byline">
       <span>Device: AKI-Onset (ICU, 24h index) v0.1.0</span>
       <span>Node: REALM-OS 0.1.62</span>
-      <span>Lens: Notified Body</span>
     </p>
   </header>
 
+  <h3>For notified bodies: reading the dossier</h3>
   <div class="ways">
     <a class="way" href="video.html">
       <div>
@@ -145,7 +145,7 @@
         <p>The whole walkthrough, narrated, with the screen zooming to each figure as it is
           named. Nothing to drive.</p>
       </div>
-      <span class="tag">9:06 video</span>
+      <span class="tag">9:41 video</span>
     </a>
 
     <a class="way" href="player.html">
@@ -167,6 +167,28 @@
     </a>
   </div>
 
+  <h3>For manufacturers: getting the device there</h3>
+  <div class="ways">
+    <a class="way" href="manufacturer-1/player.html">
+      <div>
+        <h2>Bring your device onto a REALM node</h2>
+        <p>Serve the contract, package without patient data, test and pre-flight the
+          certification gates yourself, sign, enrol your key, import, and map features to
+          concepts. Terminal steps are a real session against the published image.</p>
+      </div>
+      <span class="tag">6:44 interactive</span>
+    </a>
+
+    <a class="way" href="manufacturer-2/player.html">
+      <div>
+        <h2>Evaluate it on a held-out test set</h2>
+        <p>Declare the device and its claims, bind the certified model, run a labelled-outcome
+          evaluation on your hold-out, read the results as a reviewer will, and submit.</p>
+      </div>
+      <span class="tag">5:40 interactive</span>
+    </a>
+  </div>
+
   <h3>The four questions it answers</h3>
   <p class="body">Is this the device that was submitted? Could this evidence answer the
     question? Do the declared claims hold? And will degradation in service be detected? REALM
@@ -185,7 +207,9 @@
     </div>
     <div class="real">
       <dt>Real</dt>
-      <dd>The pre-market cohort: 16,829 patients converted from MIMIC-IV into OMOP on the node.</dd>
+      <dd>The pre-market cohort: 16,829 patients, the manufacturer's own 30% hold-out, converted
+        from MIMIC-IV into OMOP on the node. Evaluating on it reproduces the declared performance
+        under the node's control; it is not external validation.</dd>
     </div>
     <div class="real">
       <dt>Real</dt>
